@@ -17,7 +17,7 @@
     "build": "npx tsc && pnpm fix-extension && pnpm build-templates",
     "fix-extension": "ts-add-js-extension add --dir=dist",
     "prepublishOnly": "pnpm build && pnpm version prepatch",
-    "build-templates": "cp -rp __templates/* dist/__templates",
+    "build-templates": "cp -rp __templates dist/__templates",
     "test": "pnpm build && node index.mjs npx create skrepo abc"
   },
   "keywords": [],
