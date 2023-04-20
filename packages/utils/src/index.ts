@@ -3,6 +3,8 @@ import path from "node:path";
 import {TemplateMeta, TemplateMetaRuntime} from "./types";
 import Module = NodeJS.Module;
 
+export * from './types'
+
 export async function generateTemplateMetas(rootDirPath: string, templatePrefix: string = '', defaultMeta: TemplateMeta): Promise<TemplateMetaRuntime[]> {
     const templateSpacePath = path.join(rootDirPath, '__templates')
     if (!fs.pathExistsSync(templateSpacePath)) {

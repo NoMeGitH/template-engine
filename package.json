@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@skogkatt/creator-utils": "workspace:0.0.2-0"
+  }
 }

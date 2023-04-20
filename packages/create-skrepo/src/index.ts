@@ -11,7 +11,7 @@ import path from "node:path";
 import {fileURLToPath} from 'node:url'
 import {GeneratorDir} from '@skogkatt/dev-cli-generator'
 import inquirer, {QuestionCollection} from "inquirer";
-import {TemplateMeta, TemplateMetaRuntime} from "./utils/types";
+import {TemplateMeta, TemplateMetaRuntime} from "@skogkatt/creator-utils";
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -52,6 +52,7 @@ const generator = new GeneratorDir({
     outputPath: cwd,
     templatePath: templateMetaSelect.path
 })
+
 loading.show('正在生成文件...')
 generator.render2(options).then(() => {
     loading.close()
