@@ -5,7 +5,7 @@
 
 import minimist from "minimist";
 import process from "node:process";
-import {generateTemplateMetas} from "./utils";
+import {generateTemplateMetas} from "@skogkatt/creator-utils";
 import {colorPalettes, logger, loading} from '@skogkatt/dev-cli-utils'
 import path from "node:path";
 import {fileURLToPath} from 'node:url'
@@ -30,6 +30,7 @@ const defaultMeta: TemplateMeta = {
     ]
 }
 const builtinTemplatePrefix = '__template-repo-'
+console.log('dirname: ', path.join(__dirname))
 const builtinTemplates: TemplateMetaRuntime[] = await generateTemplateMetas(path.join(__dirname), builtinTemplatePrefix, defaultMeta)
 const customTemplates: TemplateMetaRuntime[] = await generateTemplateMetas(cwd, '', defaultMeta)
 const templates = [...builtinTemplates, ...customTemplates]

@@ -1,0 +1,11 @@
+export * from "./type";
+import _<%=name$pascalCase%> from "./<%=name$pascalCase%>.vue";
+
+export const <%=name$pascalCase%> = _<%=name$pascalCase%>;
+
+// volar
+declare module "vue" {
+  export interface GlobalComponents {
+    <%=name$pascalCase%>: typeof _<%=name$pascalCase%>;
+  }
+}

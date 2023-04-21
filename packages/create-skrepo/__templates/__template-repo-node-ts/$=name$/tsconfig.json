@@ -1,9 +1,0 @@
-{
-  "extends": "./node_modules/@skogkatt/ts-node-config/src/tsconfig.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": [
-    "src"
-  ]
-}

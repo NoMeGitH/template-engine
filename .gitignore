@@ -1,0 +1,8 @@
+/node_modules/
+/packages/create-skcom/node_modules/
+/packages/utils/node_modules/
+/packages/utils/dist/
+/packages/create-skrepo/dist/
+/packages/create-skrepo/node_modules/
+/.idea/
+/packages/create-skcom/dist/
