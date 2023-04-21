@@ -1,0 +1,6 @@
+/packages/create-skcom/node_modules/
+/packages/create-skrepo/node_modules/
+/packages/utils/node_modules/
+/.idea/
+/node_modules/
+/pnpm-lock.yaml
