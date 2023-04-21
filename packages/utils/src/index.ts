@@ -45,7 +45,7 @@ export async function generateTemplateMetas(rootDirPath: string, templatePrefix:
         }
         return {
             id: fn,
-            title: meta.title || fn.slice(prefixStrLength),
+            title: meta.title || prefixStrLength ? fn.slice(prefixStrLength) : fn,
             description: meta.description,
             command: meta.command,
             variants: meta.variants,

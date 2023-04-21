@@ -1,6 +1,6 @@
 {
   "name": "create-skxlsx",
-  "version": "1.0.7-0",
+  "version": "1.0.11-0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -11,10 +11,10 @@
     "index.mjs"
   ],
   "bin": {
-    "create-skrepo": "index.mjs"
+    "create-skxlsx": "index.mjs"
   },
   "scripts": {
-    "build": "npx tsc && pnpm fix-extension && pnpm build-templates",
+    "build": "npx tsc && pnpm fix-extension",
     "fix-extension": "ts-add-js-extension add --dir=dist",
     "prepublishOnly": "pnpm build && pnpm version prepatch",
     "build-templates": "cp -rp __templates/* dist/__templates",
@@ -35,12 +35,14 @@
     "typescript": "^5.0.3"
   },
   "dependencies": {
-    "@skogkatt/creator-utils": "workspace:0.0.2-0",
-    "@skogkatt/dev-cli-generator": "0.0.9-0",
+    "@skogkatt/creator-utils": "workspace:0.0.4-0",
+    "@skogkatt/dev-cli-generator": "0.0.12-0",
     "@skogkatt/dev-cli-utils": "0.0.7-0",
     "fs-extra": "^11.1.1",
     "inquirer": "^9.1.5",
     "kolorist": "^1.7.0",
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "moment": "^2.29.4",
+    "xlsx": "^0.18.5"
   }
 }

@@ -13,6 +13,7 @@ import {GeneratorDir} from '@skogkatt/dev-cli-generator'
 import inquirer, {QuestionCollection} from "inquirer";
 import {TemplateMeta, TemplateMetaRuntime} from "@skogkatt/creator-utils";
 
+loading.show("加载中...")
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -33,7 +34,6 @@ const builtinTemplatePrefix = '__template-com-'
 const builtinTemplates: TemplateMetaRuntime[] = await generateTemplateMetas(path.join(__dirname), builtinTemplatePrefix, defaultMeta)
 const customTemplates: TemplateMetaRuntime[] = await generateTemplateMetas(cwd, '', defaultMeta)
 const templates = [...builtinTemplates, ...customTemplates]
-console.log(customTemplates, builtinTemplates, __dirname, cwd)
 const questions: QuestionCollection = [
     {
         type: 'list',
@@ -42,6 +42,7 @@ const questions: QuestionCollection = [
         choices: templates.map(t => ({name: setRandom(t.title) as string, value: t.id}))
     }
 ]
+loading.close()
 const {template} = await prompts(questions)
 
 const templateMetaSelect = templates.find(t => t.id === template) as TemplateMetaRuntime

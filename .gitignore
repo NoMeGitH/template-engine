@@ -6,3 +6,5 @@
 /packages/create-skrepo/node_modules/
 /.idea/
 /packages/create-skcom/dist/
+/packages/create-skxlsx/dist/
+/packages/create-skxlsx/node_modules/

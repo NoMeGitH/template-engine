@@ -1,6 +1,6 @@
 {
   "name": "create-skrepo",
-  "version": "1.0.10-0",
+  "version": "1.0.13-0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -35,7 +35,7 @@
     "typescript": "^5.0.3"
   },
   "dependencies": {
-    "@skogkatt/creator-utils": "workspace:0.0.3-0",
+    "@skogkatt/creator-utils": "workspace:0.0.4-0",
     "@skogkatt/dev-cli-generator": "0.0.12-0",
     "@skogkatt/dev-cli-utils": "0.0.7-0",
     "fs-extra": "^11.1.1",
