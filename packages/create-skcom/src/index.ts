@@ -5,13 +5,13 @@
 
 import minimist from "minimist";
 import process from "node:process";
-import {generateTemplateMetas} from "./utils";
+import {generateTemplateMetas} from "@skogkatt/creator-utils";
 import {colorPalettes, logger, loading} from '@skogkatt/dev-cli-utils'
 import path from "node:path";
 import {fileURLToPath} from 'node:url'
 import {GeneratorDir} from '@skogkatt/dev-cli-generator'
 import inquirer, {QuestionCollection} from "inquirer";
-import {TemplateMeta, TemplateMetaRuntime} from "./utils/types";
+import {TemplateMeta, TemplateMetaRuntime} from "@skogkatt/creator-utils";
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -29,7 +29,7 @@ const defaultMeta: TemplateMeta = {
         }
     ]
 }
-const builtinTemplatePrefix = '__template-repo-'
+const builtinTemplatePrefix = '__template-com-'
 const builtinTemplates: TemplateMetaRuntime[] = await generateTemplateMetas(path.join(__dirname), builtinTemplatePrefix, defaultMeta)
 const customTemplates: TemplateMetaRuntime[] = await generateTemplateMetas(cwd, '', defaultMeta)
 const templates = [...builtinTemplates, ...customTemplates]
@@ -52,6 +52,7 @@ const generator = new GeneratorDir({
     outputPath: cwd,
     templatePath: templateMetaSelect.path
 })
+
 loading.show('正在生成文件...')
 generator.render2(options).then(() => {
     loading.close()

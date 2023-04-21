@@ -1,6 +1,6 @@
 {
   "name": "create-skcom",
-  "version": "1.0.7-0",
+  "version": "1.0.12-0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -11,13 +11,13 @@
     "index.mjs"
   ],
   "bin": {
-    "create-skrepo": "index.mjs"
+    "create-skcom": "index.mjs"
   },
   "scripts": {
     "build": "npx tsc && pnpm fix-extension && pnpm build-templates",
     "fix-extension": "ts-add-js-extension add --dir=dist",
     "prepublishOnly": "pnpm build && pnpm version prepatch",
-    "build-templates": "cp -rp __templates dist/__templates",
+    "build-templates": "cp -rp __templates/* dist/__templates",
     "test": "pnpm build && node index.mjs npx create skrepo abc"
   },
   "keywords": [],
@@ -35,8 +35,8 @@
     "typescript": "^5.0.3"
   },
   "dependencies": {
-    "@skogkatt/creator-utils": "workspace:0.0.2-0",
-    "@skogkatt/dev-cli-generator": "0.0.9-0",
+    "@skogkatt/creator-utils": "workspace:0.0.4-0",
+    "@skogkatt/dev-cli-generator": "0.0.12-0",
     "@skogkatt/dev-cli-utils": "0.0.7-0",
     "fs-extra": "^11.1.1",
     "inquirer": "^9.1.5",

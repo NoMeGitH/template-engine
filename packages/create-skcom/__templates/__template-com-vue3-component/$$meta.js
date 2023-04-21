@@ -1,10 +1,10 @@
 export default {
-    title: 'Node Typescript 项目',
-    description: 'Node Typescript ESM',
+    title: 'Vue3 Component',
+    description: 'Vue3 TS Less Component',
     variants: [
         {
             name: 'name',
-            message: '项目名称',
+            message: '组件名称',
             default: 'node-ts'
         }
     ]
