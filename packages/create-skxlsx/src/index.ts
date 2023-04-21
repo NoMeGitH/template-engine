@@ -15,6 +15,7 @@ import inquirer, {QuestionCollection} from "inquirer";
 import {TemplateMeta, TemplateMetaRuntime} from "@skogkatt/creator-utils";
 import * as fs from "fs";
 import xlsx from 'xlsx'
+import {Parser} from "@skogkatt/dev-cli-generator";
 
 loading.show("加载中...")
 const __filename = fileURLToPath(import.meta.url)
@@ -77,27 +78,29 @@ const columns: any[] = data[0];
 const rows: any[][] = data.slice(1);
 const _rows: any[] = []
 rows.forEach(row => {
-    const o: any = {}
+    let o: any = {}
     columns.forEach((col, cIndex) => {
         o[col] = row[cIndex];
     })
-    _rows.push(o)
+    _rows.push(Parser.contextCaseExtend(o))
 })
 
 
 const templateMetaSelect = templates.find(t => t.id === template) as TemplateMetaRuntime
 const templateQuestions: QuestionCollection = templateMetaSelect.variants as QuestionCollection || []
 const options = await prompts(templateQuestions)
+console.log(options)
 options._rows = _rows
 options.$filename = file.slice(0, file.indexOf("."))
 options.$time = moment().format('YYYY-MM-DD HH-mm-ss')
+
 const generator = new GeneratorDir({
     outputPath: cwd,
     templatePath: templateMetaSelect.path
 })
 
 loading.show('正在生成文件...')
-generator.render2(options).then(() => {
+generator.render2(Parser.contextCaseExtend(options)).then(() => {
     loading.close()
     logger.g('文件生成完毕！')
 })
