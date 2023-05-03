@@ -20,8 +20,17 @@ const __dirname = path.dirname(__filename)
 const prompts = inquirer.prompt
 
 const {setRandom, setColorBlue} = colorPalettes
-const argv = minimist<{ t?: string; template?: string }>(process.argv.slice(2), {string: ['_']})
+
+interface TheCreateParams {
+    t?: string;
+    template?: string
+    p?: string;
+    path?: string
+}
+
+const argv = minimist<TheCreateParams>(process.argv.slice(2), {string: ['_']})
 const cwd = process.cwd()
+const outputPath = argv.path || argv.p || cwd
 const defaultMeta: TemplateMeta = {
     variants: [
         {
@@ -42,15 +51,29 @@ const questions: QuestionCollection = [
         choices: templates.map(t => ({name: setRandom(t.title) as string, value: t.id}))
     }
 ]
+console.log('templates', templates)
 loading.close()
-const {template} = await prompts(questions)
+
+const argvTemplate = argv.template || argv.t
+let template
+if (argvTemplate) {
+    if (templates.find(t => t.id === argvTemplate)) {
+        template = argvTemplate
+    } else {
+        logger.r(`模板 ${argvTemplate} 不存在`)
+    }
+} else {
+    const {template: propTemplate} = await prompts(questions)
+    template = propTemplate
+}
+
 
 const templateMetaSelect = templates.find(t => t.id === template) as TemplateMetaRuntime
 const templateQuestions: QuestionCollection = templateMetaSelect.variants as QuestionCollection || []
 const options = await prompts(templateQuestions)
 
 const generator = new GeneratorDir({
-    outputPath: cwd,
+    outputPath,
     templatePath: templateMetaSelect.path
 })
 
@@ -59,4 +82,3 @@ generator.render2(options).then(() => {
     loading.close()
     logger.g('文件生成完毕！')
 })
-

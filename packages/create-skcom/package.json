@@ -1,6 +1,6 @@
 {
   "name": "create-skcom",
-  "version": "1.0.15-0",
+  "version": "1.0.29-0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -24,23 +24,23 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@skogkatt/ts-node-config": "0.0.2-0",
+    "@skogkatt/ts-node-config": "latest",
     "@types/fs-extra": "^11.0.1",
     "@types/inquirer": "^9.0.3",
     "@types/minimist": "^1.2.2",
-    "@types/node": "^18.15.11",
+    "@types/node": "^18.16.3",
     "@types/prompts": "^2.4.4",
     "rimraf": "^4.4.1",
     "ts-add-js-extension": "^1.3.3",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@skogkatt/creator-utils": "workspace:0.0.4-0",
-    "@skogkatt/dev-cli-generator": "0.0.17-0",
-    "@skogkatt/dev-cli-utils": "0.0.9-0",
+    "@skogkatt/creator-utils": "workspace:latest",
+    "@skogkatt/dev-cli-generator": "latest",
+    "@skogkatt/dev-cli-utils": "latest",
     "fs-extra": "^11.1.1",
-    "inquirer": "^9.1.5",
-    "kolorist": "^1.7.0",
+    "inquirer": "^9.2.0",
+    "kolorist": "^1.8.0",
     "minimist": "^1.2.8"
   }
 }
