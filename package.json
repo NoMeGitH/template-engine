@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-all": "pnpm -r build",
-    "publish-all": "pnpm -r publish"
+    "publish-all": "pnpm -r publish",
+    "up-all": "pnpm -r up"
   },
   "keywords": [],
   "author": "",
