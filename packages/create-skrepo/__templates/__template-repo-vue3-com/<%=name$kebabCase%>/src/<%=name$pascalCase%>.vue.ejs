@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-    import './style.less'
-    import {<%= name@camelCase %>Props} from "./type";
+    import './style.less.ejs.ejs'
+    import {<%= name$camelCase %>Props} from "./type";
 
     const props = defineProps(<%= name$camelCase %>Props);
 </script>

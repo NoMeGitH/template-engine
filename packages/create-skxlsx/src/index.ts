@@ -24,8 +24,9 @@ const __dirname = path.dirname(__filename)
 const prompts = inquirer.prompt
 
 const {setRandom, setColorBlue} = colorPalettes
-const argv = minimist<{ t?: string; template?: string }>(process.argv.slice(2), {string: ['_']})
+const argv = minimist<{ p?: string; path?: string }>(process.argv.slice(2), {string: ['_']})
 const cwd = process.cwd()
+const outputPath = argv.path || argv.p || cwd
 const defaultMeta: TemplateMeta = {
     variants: []
 }
@@ -95,7 +96,7 @@ options.$filename = file.slice(0, file.indexOf("."))
 options.$time = moment().format('YYYY-MM-DD HH-mm-ss')
 
 const generator = new GeneratorDir({
-    outputPath: cwd,
+    outputPath,
     templatePath: templateMetaSelect.path
 })
 

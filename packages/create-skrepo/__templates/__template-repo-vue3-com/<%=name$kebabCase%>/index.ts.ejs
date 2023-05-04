@@ -1,0 +1,11 @@
+import <%=name$pascalCase%> from './src/<%=name$pascalCase%>.vue'
+import {App} from 'vue'
+
+<%=name$pascalCase%>.name = '<%=name$kebabCase%>'
+
+<%=name$pascalCase%>.install = (app: App): void => {
+    // 注册组件
+    app.component(<%=name$pascalCase%>.name, <%=name$pascalCase%>)
+}
+
+export default <%=name$pascalCase%>

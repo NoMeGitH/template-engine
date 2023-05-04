@@ -20,8 +20,9 @@ const __dirname = path.dirname(__filename)
 const prompts = inquirer.prompt
 
 const {setRandom, setColorBlue} = colorPalettes
-const argv = minimist<{ t?: string; template?: string }>(process.argv.slice(2), {string: ['_']})
+const argv = minimist<{ p?: string; path?: string }>(process.argv.slice(2), {string: ['_']})
 const cwd = process.cwd()
+const outputPath = argv.path || argv.p || cwd
 const defaultMeta: TemplateMeta = {
     variants: [
         {
@@ -50,7 +51,7 @@ const templateQuestions: QuestionCollection = templateMetaSelect.variants as Que
 const options = await prompts(templateQuestions)
 
 const generator = new GeneratorDir({
-    outputPath: cwd,
+    outputPath,
     templatePath: templateMetaSelect.path
 })
 
@@ -59,4 +60,8 @@ generator.render2(options).then(() => {
     loading.close()
     logger.g('文件生成完毕！')
 })
+
+export const generate(){
+
+}
 
