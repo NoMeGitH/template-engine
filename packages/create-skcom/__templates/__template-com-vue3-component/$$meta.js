@@ -5,7 +5,7 @@ export default {
         {
             name: 'name',
             message: '组件名称',
-            default: 'node-ts'
+            default: 'sk-demo'
         }
     ]
 }

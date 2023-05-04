@@ -5,7 +5,7 @@ import Module = NodeJS.Module;
 
 export * from './types'
 
-export async function generateTemplateMetas(rootDirPath: string, templatePrefix: string = '', defaultMeta: TemplateMeta): Promise<TemplateMetaRuntime[]> {
+export async function generateTemplateMetas(rootDirPath: string, templatePrefix?: string, defaultMeta?: TemplateMeta): Promise<TemplateMetaRuntime[]> {
     const templateSpacePath = path.join(rootDirPath, '__templates')
     if (!fs.pathExistsSync(templateSpacePath)) {
         return []
@@ -23,7 +23,7 @@ export async function generateTemplateMetas(rootDirPath: string, templatePrefix:
     async function getTemplateMeta(fn: string): Promise<TemplateMetaRuntime> {
         const templateDirPath = path.join(templateSpacePath, fn)
         const metaFilePath = path.join(templateDirPath, `$$meta.js`)
-        const prefixStrLength = templatePrefix.length
+        const prefixStrLength = templatePrefix?.length || 0
         let meta: TemplateMetaRuntime
         const isMetaFileExist = fs.existsSync(metaFilePath)
 
@@ -37,7 +37,7 @@ export async function generateTemplateMetas(rootDirPath: string, templatePrefix:
             meta = {
                 id: fn,
                 title: fn.slice(0, fn.indexOf('.')),
-                variants: defaultMeta.variants || [],
+                variants: defaultMeta?.variants || [],
                 path: templateDirPath
             }
         } else {
