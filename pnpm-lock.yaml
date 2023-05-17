@@ -7,7 +7,7 @@ importers:
 
   packages/create-skcom:
     specifiers:
-      '@skogkatt/creator-utils': workspace:latest
+      '@skogkatt/creator-utils': workspace:*
       '@skogkatt/dev-cli-generator': latest
       '@skogkatt/dev-cli-utils': latest
       '@skogkatt/ts-node-config': latest
@@ -25,7 +25,7 @@ importers:
       typescript: ^5.0.4
     dependencies:
       '@skogkatt/creator-utils': link:../utils
-      '@skogkatt/dev-cli-generator': 0.0.17-0
+      '@skogkatt/dev-cli-generator': 0.0.22-0
       '@skogkatt/dev-cli-utils': 0.0.11-0
       fs-extra: 11.1.1
       inquirer: 9.2.0
@@ -44,7 +44,7 @@ importers:
 
   packages/create-skrepo:
     specifiers:
-      '@skogkatt/creator-utils': workspace:latest
+      '@skogkatt/creator-utils': workspace:*
       '@skogkatt/dev-cli-generator': latest
       '@skogkatt/dev-cli-utils': latest
       '@skogkatt/ts-node-config': latest
@@ -62,8 +62,8 @@ importers:
       typescript: ^5.0.4
     dependencies:
       '@skogkatt/creator-utils': link:../utils
-      '@skogkatt/dev-cli-generator': 0.0.17-0
-      '@skogkatt/dev-cli-utils': 0.0.10-0
+      '@skogkatt/dev-cli-generator': 0.0.22-0
+      '@skogkatt/dev-cli-utils': 0.0.11-0
       fs-extra: 11.1.1
       inquirer: 9.2.0
       kolorist: 1.8.0
@@ -81,7 +81,7 @@ importers:
 
   packages/create-skxlsx:
     specifiers:
-      '@skogkatt/creator-utils': workspace:latest
+      '@skogkatt/creator-utils': workspace:*
       '@skogkatt/dev-cli-generator': latest
       '@skogkatt/dev-cli-utils': latest
       '@skogkatt/ts-node-config': latest
@@ -101,8 +101,8 @@ importers:
       xlsx: ^0.18.5
     dependencies:
       '@skogkatt/creator-utils': link:../utils
-      '@skogkatt/dev-cli-generator': 0.0.17-0
-      '@skogkatt/dev-cli-utils': 0.0.10-0
+      '@skogkatt/dev-cli-generator': 0.0.22-0
+      '@skogkatt/dev-cli-utils': 0.0.11-0
       fs-extra: 11.1.1
       inquirer: 9.2.0
       kolorist: 1.8.0
@@ -124,9 +124,12 @@ importers:
     specifiers:
       '@skogkatt/ts-node-config': latest
       '@types/node': ^18.16.3
+      fs-extra: ^11.1.1
       rimraf: ^4.4.1
       ts-add-js-extension: ^1.3.3
       typescript: ^5.0.4
+    dependencies:
+      fs-extra: 11.1.1
     devDependencies:
       '@skogkatt/ts-node-config': 0.0.2-0
       '@types/node': 18.16.3
@@ -355,23 +358,14 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@skogkatt/dev-cli-generator/0.0.17-0:
-    resolution: {integrity: sha512-lRZw7NI5VZ1DYKl9J+HhcMHIM8Zp/J8u8sOplk42L+tsCLt0ch9lBuWr9kuohjp/aAak1h/CqWlh8GE8h9Polw==}
+  /@skogkatt/dev-cli-generator/0.0.22-0:
+    resolution: {integrity: sha512-omq31jKFQRP7gi9qP77VhEnYhNIEJHAsMYp+lLr7aNF7fHG9m+ti+0JxXUswn1go53yRH+SBmm8Rdonbf8LKqw==}
     dependencies:
+      colors: 1.4.0
+      diff: 5.1.0
       ejs: 3.1.9
       lodash-es: 4.17.21
-    dev: false
-
-  /@skogkatt/dev-cli-utils/0.0.10-0:
-    resolution: {integrity: sha512-3nyqfIiMwUix68WtkCL40R+jYEHq8qRlcAEeQ5f6WfA5Z9Cvg6KuuTmEJHPK0cXIXQFESAQlmKjFyabRovFc9Q==}
-    dependencies:
-      chalk: 5.2.0
-      esbuild: 0.17.18
-      kolorist: 1.8.0
-      lodash-es: 4.17.21
-      log-symbols: 5.1.0
-      ora: 6.3.0
-      shelljs: 0.8.5
+      moment: 2.29.4
     dev: false
 
   /@skogkatt/dev-cli-utils/0.0.11-0:
@@ -618,6 +612,11 @@ packages:
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
 
+  /colors/1.4.0:
+    resolution: {integrity: sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==}
+    engines: {node: '>=0.1.90'}
+    dev: false
+
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: false
@@ -644,6 +643,11 @@ packages:
     resolution: {integrity: sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A==}
     dependencies:
       clone: 1.0.4
+    dev: false
+
+  /diff/5.1.0:
+    resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
+    engines: {node: '>=0.3.1'}
     dev: false
 
   /dir-glob/3.0.1:

@@ -35,7 +35,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@skogkatt/creator-utils": "workspace:latest",
+    "@skogkatt/creator-utils": "workspace:*",
     "@skogkatt/dev-cli-generator": "latest",
     "@skogkatt/dev-cli-utils": "latest",
     "fs-extra": "^11.1.1",
