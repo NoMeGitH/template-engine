@@ -1,0 +1,19 @@
+<template>
+  <div :class="ns.b()">
+    page: <%=name$kebabCase%>
+  </div>
+</template>
+
+<script setup>
+import {useNamespace} from "/@/hooks/use-namespace";
+const ns = useNamespace('<%=name$kebabCase%>')
+import './index.scss'
+
+defineOptions({
+  name: '<%=name$pascalCase%>'
+})
+</script>
+
+<style scoped>
+
+</style>
