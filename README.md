@@ -89,6 +89,7 @@ pnpm create-com
 ##### 自定义本地模版仓库
 
 命令执行目录下新建目录``__templates`
+
 ![img_7.png](img_7.png)
 
 执行 ```pnpm create-skcom```后将读取__templates目录下的模版配置，提示选择模版后，根据$$meta.js文件进行prompt提示
