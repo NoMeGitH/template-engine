@@ -15,6 +15,7 @@
 
 - 新增语法，扩展了ejs的Filters能力
   - ```<%=name$camelCase%>```
+![img_8.png](img_8.png)
 - 内置常用时间处理函数
   - ```<%=$time%>```
 - 模版语法可用于生成目录名，详见Examples
