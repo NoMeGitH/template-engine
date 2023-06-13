@@ -15,6 +15,7 @@
 
 - 新增语法，扩展了ejs的Filters能力
   - ```<%=name$camelCase%>```
+![img_8.png](img_8.png)
 - 内置常用时间处理函数
   - ```<%=$time%>```
 - 模版语法可用于生成目录名，详见Examples
@@ -89,6 +90,7 @@ pnpm create-com
 ##### 自定义本地模版仓库
 
 命令执行目录下新建目录``__templates`
+
 ![img_7.png](img_7.png)
 
 执行 ```pnpm create-skcom```后将读取__templates目录下的模版配置，提示选择模版后，根据$$meta.js文件进行prompt提示
