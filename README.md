@@ -8,7 +8,9 @@
 #### Install
 
 ```$ npm i -g create-skcom```
+
 ```$ npm i -g create-skrepo```
+
 ```$ npm i -g create-skxlsx```
 
 #### Features
